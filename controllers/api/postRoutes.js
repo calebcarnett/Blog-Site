@@ -7,11 +7,6 @@ router.get('/', async (req, res) => {
     const postData = await Post.findAll();
     res.status(200).json(postData);
 
-    if (!postData) {
-      res.status(404).json({ message: 'No location found with this id!' });
-      return;
-    }
-
   } catch (err) {
     res.status(500).json(err);
   }
