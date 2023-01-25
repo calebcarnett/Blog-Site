@@ -12,11 +12,13 @@ User.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    name: {
       type: DataTypes.STRING,
+      allowNull: false,
     },
     email: {
       type: DataTypes.STRING,
+      allowNull: false,
       // prevents duplicate email addresses in DB
       unique: true,
       // checks for email format (foo@bar.com)
@@ -25,7 +27,11 @@ User.init(
       },
     },
     password: {
+      allowNull: false,
       type: DataTypes.STRING,
+      validate: {
+        len: [8],
+      },
     },
   },
   {
