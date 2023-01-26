@@ -9,10 +9,15 @@
 </head>
 
 <body>
-  <header class="display-flex justify-space-between align-center p-2">
-    <h1>
-      Blog site
-    </h1>
+  <header>
+  <div>
+  <div>
+        <button class="btn btn-primary" type="submit">Home</button>
+        <button class="btn btn-primary" type="submit">Dashboard</button>
+        <button class="btn btn-primary" type="submit">login</button>
+          <h3>{{post.title}}</h3>
+  </div>
+</div>
     <!-- TODO: Add a comment describing the functionality of this helper -->
     {{#if logged_in}}
     <nav>
@@ -20,7 +25,7 @@
     </nav>
     {{/if}}
   </header>
-  <main class="container container-fluid mt-5">
+  <main>
     {{{ body }}}
   </main>
   <footer>
