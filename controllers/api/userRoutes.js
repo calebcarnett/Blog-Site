@@ -1,7 +1,8 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/', async (req, res) => {
+
+router.get('/',async (req, res) => {
   try {
     const userData = await User.findAll();
     res.status(200).json(userData);
@@ -28,7 +29,7 @@ router.post('/', async (req, res) => {
 router.post('/login', async (req, res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });
-
+console.log(userData)
     if (!userData) {
       res
         .status(400)

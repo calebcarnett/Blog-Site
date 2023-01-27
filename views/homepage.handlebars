@@ -2,8 +2,8 @@
       {{#each posts as |post| }}
       <section class="blog-post">
         <div class="blog-title">
-         <a href="/comment">{{title}}</a> 
-        <p>Posted by: on {{format_date date_created}}</p>
+         <a href="/dashboard">{{title}}</a> 
+        <p>Posted by: {{username}} on {{format_date date_created}}</p>
         </div>
         <div class="blog-content">
          <p>{{content}}</p>
