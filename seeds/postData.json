@@ -1,10 +1,17 @@
 [
  
     {
-      "name": "test",
-      "title": "This is a great blog title!",
-      "content": "hollly crap its working"
-  
+      "name": "Caleb Carnett",
+      "title": "Why MVC is so important",
+      "content": " It’s just a three layer architecture where M stands for MODEL, V stands for VIEW, and the most important part in this architecture is CONTROLLER, like a Hero of any film. Thus, every layer in MVC is assigned with a unique responsibility.  ",
+      "post_id": 1
+    },
+    {
+      "name": "Jane carnett",
+      "title": "Object-Relational Mapping",
+      "content": "I have really loved learning about ORMs. It's really simplified the way I create queries in SQL!",
+      "post_id": 2
     }
 ]
+
   

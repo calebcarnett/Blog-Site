@@ -5,26 +5,25 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Registry</title>
-  <link rel="stylesheet" href="/css/jass.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
+  <nav class="heading-frontpage">
   <header>
-  <div>
-  <div>
-        <button class="btn btn-primary" type="submit">Home</button>
-        <button class="btn btn-primary" type="submit">Dashboard</button>
-        <button class="btn btn-primary" type="submit">login</button>
-          <h3>{{post.title}}</h3>
-  </div>
-</div>
-    <!-- TODO: Add a comment describing the functionality of this helper -->
-    {{#if logged_in}}
-    <nav>
-      <button class="btn" id="logout">logout</button>
-    </nav>
-    {{/if}}
+         <a class="navbars" href="/">Home</a> 
+        {{#if logged_in}}
+        <a class="navbars" href="/dashboard">Dashboard</a> 
+        <button class="no-button" id="logout">logout</button>
+        {{else}}
+        <a class="navbars" href="/dashboard">Dashboard</a> 
+        <a class="navbars" href="/login">login</a>
+        {{/if}}
+
   </header>
+    <h1>The Tech Blog</h1>
+  </nav>
+
   <main>
     {{{ body }}}
   </main>
@@ -32,7 +31,7 @@
       
   </footer>
 
-  <!-- TODO: Add a comment describing the functionality of this helper -->
+
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}
