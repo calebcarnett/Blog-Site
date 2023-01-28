@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Post } = require('../../models');
+const { Post, Comment } = require('../../models');
 
 
 router.get('/', async (req, res) => {
@@ -15,6 +15,12 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: Comment,
+          attributes: ['comment', "post_id", "user_id"]
+        }
+      ]
     });
 
     if (!postData) {
@@ -32,9 +38,16 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
   try {
     const postData = await Post.create({
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+      ],
       name: req.body.name,
       title: req.body.title,
       content: req.body.content,
+      username: req.body.username,
       date_created: req.body.date_created,
     });
     res.status(200).json(postData);
