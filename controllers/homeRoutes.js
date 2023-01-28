@@ -56,10 +56,8 @@ router.get('/post/:id', async (req, res) => {
 
 
 router.get('/dashboard', async (req, res) => {
-  if(!req.session.user_id) {
-    res.redirect('/login');
+    res.render('/dashboard');
     return;
-  }
  
 });
   
