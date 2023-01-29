@@ -35,22 +35,13 @@ router.get('/:id', async (req, res) => {
 });
 
 
-router.post('/', async (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    const postData = await Post.create({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-      name: req.body.name,
-      title: req.body.title,
-      content: req.body.content,
-      username: req.body.username,
-      date_created: req.body.date_created,
+    const newPost = await Post.create({
+      ...req.body,
+      user_id: req.session.user_id,
     });
-    res.status(200).json(postData);
+    res.status(200).json(newPost);
   } catch (err) {
     res.status(400).json(err);
   }
