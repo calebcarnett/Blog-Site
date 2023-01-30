@@ -8,10 +8,10 @@
   <label for="content" class="form-label">Content</label>
   <input type="text" class="form-control" id="edit-content" value="{{content}}">
 </div>
-   <button class="edit-post">SAVE</button>
-       <button id="delete-post">DELETE</button>
+   <button id="edit-post" data-id="{{post.id}}">SAVE</button>
+   <button id="delete-post" data-id="{{post.id}}">DELETE</button>
 
-
+<input type="hidden" id="post-id" value="{{post.id}}"
 
 
 <script src="../public/js/editPost.js"></script>

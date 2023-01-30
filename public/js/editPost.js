@@ -3,19 +3,17 @@ const editPost = async (event) => {
   
     const editTitle = document.querySelector('#edit-title').value.trim();
     const editContent = document.querySelector('#edit-content').value.trim();
-    const id = window.location.toString().split('/')[
-        window.location.toString().split('/').length - 1
-      ];
-        
+    const postId = document.querySelector('#edit-post').value;
+
  
  
-      console.log(editTitle, editContent, id)
-      const response = await fetch(`/api/post/${id}`, {
+      console.log(editTitle, editContent, postId)
+      const response = await fetch(`/api/post/${postId}`, {
         method: 'PUT',
-        body: JSON.stringify({ title, content, post_id: id}),
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        body: JSON.stringify({ title, content}),
+        // headers: {
+        //   'Content-Type': 'application/json',
+        // },
       });
       console.log(response)
       if (response.ok) {
@@ -25,7 +23,7 @@ const editPost = async (event) => {
       }
   };
   
-  document.querySelector('.edit-post').addEventListener('click', editPost);
+  document.querySelector('#edit-post').addEventListener('click', editPost);
   
   
   

@@ -126,6 +126,17 @@ router.get('/editPost', (req, res) => {
   res.render('editPost');
 });
 
+router.get('/singlePost', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (!req.session.logged_in) {
+    res.redirect('/singlePost');
+    return;
+  }
+
+  res.render('singlePost');
+});
+
+
 
 // Use withAuth middleware to prevent access to route
 router.get('/homepage', async (req, res) => {
