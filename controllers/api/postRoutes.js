@@ -50,7 +50,7 @@ router.post("/", async (req, res) => {
 router.put('/:post_id', async (req, res) => {
   const postData = await Post.update(
     {
-      name: req.body.name,
+      username: req.body.username,
       title: req.body.title,
       content: req.body.content,
       date_created: req.body.date_created,

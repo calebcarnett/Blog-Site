@@ -1,13 +1,9 @@
+      {{#each posts as |post| }}
+    <button style="background-color: grey; border: none; border-radius: 50px;">
+    <a style="color: black;" href="/editpost">{{post.title}}</a>
+      <p>Posted by: {{username}} on {{format_date date_created}}</p>
+</button>
+    {{/each}}
 
-<div class="mb-3">
-  <label for="title" class="form-label">Title</label>
-  <input type="text" class="form-control" id="title" placeholder="Example input placeholder">
-</div>
-<div class="mb-3">
-  <label for="content" class="form-label">Content</label>
-  <input type="text" class="form-control" id="content" placeholder="Another input placeholder">
-</div>
-   <button id="create">Create</button>
-
-
-<script  src="./js/newPost.js"></script>
+     <a class="navbars" href="/createPost">Create Post</a> 
+    
