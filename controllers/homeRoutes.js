@@ -39,6 +39,11 @@ router.get('/post/:id', async (req, res) => {
           attributes: ['comment', "post_id", "user_id"]
         }
       ],  
+      attributes: [
+        'id',
+        'content',
+        'title',
+    ],
       include: [
         User,
         {
@@ -95,6 +100,12 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+router.get('/signup', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  res.render('signup');
+});
+
+
 router.get('/createPost', (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (!req.session.logged_in) {
@@ -105,13 +116,15 @@ router.get('/createPost', (req, res) => {
   res.render('createPost');
 });
 
-// router.get('/createPost', (req, res) => {
-//   // If the user is already logged in, redirect the request to another route
- 
+router.get('/editPost', (req, res) => {
+  // If the user is already logged in, redirect the request to another route
+  if (!req.session.logged_in) {
+    res.redirect('/');
+    return;
+  }
 
-//   res.render('createPost');
-// });
-
+  res.render('editPost');
+});
 
 
 // Use withAuth middleware to prevent access to route

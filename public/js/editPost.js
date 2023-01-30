@@ -1,24 +1,31 @@
-const loginFormHandler = async (event) => {
+const editPost = async (event) => {
     event.preventDefault();
   
-    // Collect values from the login form
-    const email = document.querySelector('#email-login').value.trim();
-    const password = document.querySelector('#password-login').value.trim();
-  
-    if (email && password) {
-      // Send a POST request to the API endpoint
-      const response = await fetch('/api/user/login', {
-        method: 'POST',
-        body: JSON.stringify({ email, password }),
-        headers: { 'Content-Type': 'application/json' },
+    const editTitle = document.querySelector('#edit-title').value.trim();
+    const editContent = document.querySelector('#edit-content').value.trim();
+    const id = window.location.toString().split('/')[
+        window.location.toString().split('/').length - 1
+      ];
+        
+ 
+ 
+      console.log(editTitle, editContent, id)
+      const response = await fetch(`/api/post/${id}`, {
+        method: 'PUT',
+        body: JSON.stringify({ title, content, post_id: id}),
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
-  
+      console.log(response)
       if (response.ok) {
-        // If successful, redirect the browser to the profile page
-        document.location.replace('/');
+        document.location.replace('/dashboard');
       } else {
-        alert(response.statusText);
+        alert('Failed to create project');
       }
-    }
   };
+  
+  document.querySelector('.edit-post').addEventListener('click', editPost);
+  
+  
   
