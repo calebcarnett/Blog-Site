@@ -5,7 +5,7 @@
 This is a fullstack web application that allows a user where developers can publish their blog posts and comment on other developers’ posts as well.
 
 ## Live Site
-
+https://techblogs.herokuapp.com/
 ## Contributing
 No contributions allowed <br>
 
