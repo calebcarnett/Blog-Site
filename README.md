@@ -9,7 +9,8 @@ https://techblogs.herokuapp.com/
 ## Contributing
 No contributions allowed <br>
 
-
+## Screenshot
+![image](https://user-images.githubusercontent.com/111102789/215668094-32f75909-7a60-4a25-b16a-0283745aab07.png)
 ## License
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
         
