@@ -11,9 +11,9 @@ const editPost = async (event) => {
       const response = await fetch(`/api/post/${postId}`, {
         method: 'PUT',
         body: JSON.stringify({ title, content}),
-        // headers: {
-        //   'Content-Type': 'application/json',
-        // },
+        headers: {
+          'Content-Type': 'application/json',
+        },
       });
       console.log(response)
       if (response.ok) {

@@ -8,7 +8,7 @@ const deletePost = async () => {
       body: JSON.stringify({
         post_id: id
       }),
-      // headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
   
     if (response.ok) {
