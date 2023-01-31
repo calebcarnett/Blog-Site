@@ -1,17 +1,16 @@
 
-<div class="mb-3">
-    <h3>Edit Post</h3>
-  <label for="title" class="form-label">Title</label>
-  <input type="text" class="form-control" id="edit-title" value="{{title}}">
-</div>
-<div class="mb-3">
-  <label for="content" class="form-label">Content</label>
-  <input type="text" class="form-control" id="edit-content" value="{{content}}">
-</div>
-   <button id="edit-post" data-id="{{post.id}}">SAVE</button>
-   <button id="delete-post" data-id="{{post.id}}">DELETE</button>
-
-<input type="hidden" id="post-id" value="{{post.id}}"
+<form id="edit-post-form">
+  <div>
+    <label for="edit-title">Title:</label>
+    <input type="text" id="edit-title" value="{{title}}">
+  </div>
+  <div>
+    <label for="edit-content">Content:</label>
+    <textarea id="edit-content">{{content}}</textarea>
+  </div>
+  <input type="hidden" id="post-id" value="{{id}}">
+  <button type="submit" id="edit-post">Save</button>
+</form>
 
 
 <script src="/js/deletePost.js"></script>

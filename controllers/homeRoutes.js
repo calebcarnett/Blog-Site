@@ -31,36 +31,17 @@ router.get('/', async (req, res) => {
 
 
 router.get('/post/:id', async (req, res) => {
-  try {
-    const postData = await Post.findByPk(req.params.id, {
-      include: [
-        {
-          model: Comment,
-          attributes: ['comment', "post_id", "user_id"]
-        }
-      ],  
-      attributes: [
-        'id',
-        'content',
-        'title',
-    ],
-      include: [
-        User,
-        {
-          model: Comment,
-          include: [User],
-        },
-      ],
-    });
+  const postId = req.params.id;
 
-    const post = postData.get({ plain: true });
+  // Retrieve the post data from the database based on the post ID
+  const post = await Post.findByPk(postId);
 
-    res.render('post', {
-      post
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  // Render the Handlebars template, passing the post data as context
+  res.render('post', {
+    title: post.title,
+    content: post.content,
+    id: post.id
+  });
 });
 
 
