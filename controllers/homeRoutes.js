@@ -76,6 +76,10 @@ router.get("/login", (req, res) => {
 });
 
 router.get("/signup", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
   // If the user is already logged in, redirect the request to another route
   res.render("signup");
 });
