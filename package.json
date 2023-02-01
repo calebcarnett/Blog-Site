@@ -1,5 +1,5 @@
 {
-  "name": "techblog",
+  "name": "blog-site",
   "version": "1.0.0",
   "description": "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)",
   "main": "server.js",
