@@ -1,21 +1,18 @@
-
-      {{#each posts as |post| }}
-    <section class="border border-2 p-2 mb-2 "> 
- <div class="row justify-content-between">
-    <div class="col-4">
-    <a href="singlePost">{{title}}</a>
+<h5>View posted blogs below!</h5>
+{{#each posts as |post|}}
+  <section class="border border-2 p-2 mb-2">
+    <div class="row justify-content-between">
+      <div class="col-4">
+        <a href="/singlepost/{{id}}">{{title}}</a>
+      </div>
+      <div class="col-4">
+        <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
+      </div>
     </div>
-    <div class="col-4">
-      <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
-    </div>
-  </div>
-     <p>{{content}}</p>
+    <p>{{content}}</p>
 
-
-      {{#if comment}}
+    {{#if comment}}
       <p>Comment is working</p>
-        {{/if}}
-</section>
-    {{/each}}
-    
-
+    {{/if}}
+  </section>
+{{/each}}

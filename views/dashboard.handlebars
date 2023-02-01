@@ -1,19 +1,21 @@
-      <h4>Click on title to edit a post</h4>
-      
-      {{#each posts as |post| }}
-     <section class="border border-2 p-2 mb-2 "> 
- <div class="row justify-content-between">
-    <div class="col-4">
-     <h4><a class="link" href="/editpost">{{title}}</a></h4>
- </div>
-    <div class="col-4" >
-      <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
+<h4>Click on title to edit a post</h4>
+
+{{#each posts as |post|}}
+  <section class="border border-2 p-2 mb-2">
+    <div class="row justify-content-between">
+      <div class="col-4">
+        <h4><a class="link" href="/editpost/{{id}}">{{title}}</a></h4>
+      </div>
+      <div class="col-4">
+        <p>Posted by: {{user.username}} on {{format_date date_created}}</p>
+      </div>
     </div>
-  </div>
 
-</section>
-    {{/each}}
+  </section>
+{{/each}}
 
-     <a  style="color: white; font-size: 20px; text-decoration: none; background-color: blue; padding:5px; border-radius: 50px;" class="navbars" href="/createPost">Create a Post</a> 
-  
-    
+<a
+  style="color: white; font-size: 20px; text-decoration: none; background-color: blue; padding:5px; border-radius: 50px;"
+  class="navbars"
+  href="/createPost"
+>Create a Post</a>

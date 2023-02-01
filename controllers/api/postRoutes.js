@@ -1,8 +1,7 @@
-const router = require('express').Router();
-const { Post, Comment } = require('../../models');
+const router = require("express").Router();
+const { Post, Comment } = require("../../models");
 
-
-router.get('/', async (req, res) => {
+router.get("/", async (req, res) => {
   try {
     const postData = await Post.findAll();
     res.status(200).json(postData);
@@ -11,20 +10,19 @@ router.get('/', async (req, res) => {
   }
 });
 
-
-router.get('/:id', async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       include: [
         {
           model: Comment,
-          attributes: ['comment', "post_id", "user_id"]
-        }
-      ]
+          attributes: ["comment", "post_id", "user_id"],
+        },
+      ],
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No post found with this id!' });
+      res.status(404).json({ message: "No post found with this id!" });
       return;
     }
 
@@ -33,7 +31,6 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
-
 
 router.post("/", async (req, res) => {
   try {
@@ -47,21 +44,22 @@ router.post("/", async (req, res) => {
   }
 });
 
-router.put('/:id', async (req, res) => {
+router.put("/:id", async (req, res) => {
   try {
     const postData = await Post.update(
       {
         title: req.body.title,
-        content: req.body.content
+        content: req.body.content,
       },
       {
-      where: {
-        id: req.params.id
+        where: {
+          id: req.params.id,
+        },
       }
-    });
+    );
 
     if (!postData) {
-      res.status(404).json({ message: 'No location found with this id!' });
+      res.status(404).json({ message: "No location found with this id!" });
       return;
     }
 
@@ -71,16 +69,16 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-router.delete('/:id', async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     const postData = await Post.destroy({
       where: {
-        id: req.params.id
-      }
+        id: req.params.id,
+      },
     });
 
     if (!postData) {
-      res.status(404).json({ message: 'No location found with this id!' });
+      res.status(404).json({ message: "No location found with this id!" });
       return;
     }
 

@@ -1,26 +1,22 @@
 <div class="card">
-    <div class="card-header">
-       <h4><a class="link" href="/post/{{id}}">{{title}}</a></h4>
-        <p>Posted by {{user.username}} on {{format_date created_at}}</p>
-    </div>
-        <p class="card-body">{{content}}</p>
+  <div class="card-header">
+    <h4></h4>
+    <p>Posted by: {{post.username}} {{format_date post.date_created}}</p>
+  </div>
+  <p class="card-body">{{post.content}}</p>
 </div>
-
 
 <div class="card">
-    <h3 class="card-header"></h3>
-    <form class="card-body comment-form" id="comment-form">
+  <h3 class="card-header"></h3>
+  <form class="card-body comment-form" id="comment-form">
 
-        <label class="form-label">Comment</label>
-        <input id="comment" name="comment-body" class="form-input" />
+    <label class="form-label">Comment</label>
+    <input id="comment" name="comment-body" class="form-input" />
 
-        <button type="submit" class="btn">Submit</button>
-    </form>
+    <button type="submit" class="btn">Submit</button>
+  </form>
 </div>
 
-
-
-
 {{#if loggedIn}}
-<script src="/javascript/comment.js"></script>
+  <script src="/javascript/comment.js"></script>
 {{/if}}
