@@ -4,7 +4,7 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector("#name-signup").value.trim();
   const email = document.querySelector("#email-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
-
+  console.log("its working");
   if (username && email && password) {
     const response = await fetch("/api/user/signup", {
       method: "POST",
@@ -12,14 +12,15 @@ const signupFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.ok) {
-      document.location.replace("/");
+    if (response.status === 201) {
+      document.location.replace("/dashboard");
     } else {
-      alert(response.statusText);
+      const error = await response.json();
+      alert(error.message || response.statusText);
     }
   }
 
   document
-    .querySelector("#signup-button")
-    .addEventListener("submit", signupFormHandler);
+    .querySelector("#signup")
+    .addEventListener("click", signupFormHandler);
 };
