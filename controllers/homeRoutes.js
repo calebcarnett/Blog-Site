@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Post, User, Comment } = require("../models");
+const withAuth = require("../utils/auth");
 
 router.get("/", async (req, res) => {
   try {
@@ -40,7 +41,7 @@ router.get("/post/:id", async (req, res) => {
   });
 });
 
-router.get("/dashboard", async (req, res) => {
+router.get("/dashboard", withAuth, async (req, res) => {
   try {
     // Get all posts and JOIN with user data
     const postData = await Post.findAll({
@@ -94,7 +95,7 @@ router.get("/createPost", (req, res) => {
   res.render("createPost");
 });
 
-router.get("/editpost/:id", async (req, res) => {
+router.get("/editpost/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       where: {
@@ -113,7 +114,7 @@ router.get("/editpost/:id", async (req, res) => {
   }
 });
 
-router.get("/singlepost/:id", async (req, res) => {
+router.get("/singlepost/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       where: {
@@ -151,7 +152,7 @@ router.get("/homepage", async (req, res) => {
   }
 });
 
-router.get("/comment", async (req, res) => {
+router.get("/comment", withAuth, async (req, res) => {
   try {
     const commentData = await Comment.findAll({
       include: [
