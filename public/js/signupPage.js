@@ -12,15 +12,13 @@ const signupFormHandler = async (event) => {
       headers: { "Content-Type": "application/json" },
     });
 
-    if (response.status === 201) {
-      document.location.replace("/dashboard");
+    if (response.ok) {
+      // If successful, redirect the browser to the profile page
+      document.location.replace("/");
     } else {
-      const error = await response.json();
-      alert(error.message || response.statusText);
+      alert(response.statusText);
     }
   }
-
-  document
-    .querySelector("#signup")
-    .addEventListener("click", signupFormHandler);
 };
+
+document.querySelector("#signup").addEventListener("click", signupFormHandler);
