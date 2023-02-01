@@ -98,7 +98,7 @@ router.get("/editpost/:id", async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
       where: {
-        user_id: req.session.id,
+        id: req.session.id,
       },
     });
 
